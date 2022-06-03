@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="back()">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="all-msg" *ngFor="let msg of allmessages">
+    <div class="right-bubble" *ngIf="msg.from === currentuser">
+      <div class="sp"></div>
+      <div class="msg">
+        <ion-card>
+          <ion-card-content>
+            {{msg.message}}
+          </ion-card-content>
+        </ion-card>
+
+        <span>{{msg.time | date:"short"}}</span>
+        <ion-icon name="done-all"></ion-icon>
+      </div>
+      <!-- <div class="message right">
+              [ngStyle]="auth.theme==='theme-dark'?{'background-color':'#020a17','box-shadow': '0px 0px 10px 1px rgb(255, 255, 255,.2)'}:{'background':'snow','box-shadow': '0px 0px 10px 1px rgb(0, 0, 0,.2)'}"
+
+              <mat-menu #menu="matMenu" backdropClass="">
+                <div class=" menu-panel">
+                  <button mat-menu-item matTooltip="share">
+                    <mat-icon>share</mat-icon>
+                    <span>share</span>
+                  </button>
+                  <button mat-menu-item (click)="deletemessage(msg.message,msg.time)" matTooltip="delete">
+                    <mat-icon>delete</mat-icon>
+                    <span>delete</span>
+                  </button>
+                </div>
+              </mat-menu>
+            </div> -->
+    </div>
+    <!-- [ngStyle]="auth.theme==='theme-dark'?{'background-color':'#343a40'}:{'background-color':'black','color':'white'}" -->
+    <div class="left-bubble" *ngIf="msg.from !== currentuser">
+      <div class="msg">
+        <ion-card>
+          <ion-card-content>
+            {{msg.message}}
+            <!-- <ion-icon [style.color]="msg.read?'#00aff5':''" name="done-all"></ion-icon> -->
+          </ion-card-content>
+        </ion-card>
+        <span style="padding-left: 2rem;">{{msg.time | date:"short"}}</span>
+      </div>
+      <div class="sp"></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-input placeholder="type a message" type="text" [(ngModel)]="message"></ion-input>
+    <ion-button fill="clear" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </ion-tab-bar>
+</ion-tabs>

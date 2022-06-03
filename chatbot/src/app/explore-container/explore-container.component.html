@@ -1,0 +1,16 @@
+<div id="container">
+  <ion-list>
+    <div class="list" *ngFor="let list of users" (click)="navigate(list.username || list._id)">
+      <ion-item *ngIf="list.username!==name">
+        <ion-thumbnail slot="start">
+          <!-- <ion-icon name="person"></ion-icon> -->
+          <ion-img src="../../assets/shapes.svg"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{list.username || list._id}}</h2>
+          <span *ngIf="!!list.message" style="font-size: 10px;">{{list.message??''}}, {{list?.latestdate??'' | moment}}</span>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</div>

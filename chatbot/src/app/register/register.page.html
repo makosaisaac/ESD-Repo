@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ChatBot Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <form [formGroup]="registerForm">
+      <ion-input placeholder="Enter Username" formControlName="username" type="text"></ion-input>
+      <ion-input placeholder="Enter Password" formControlName="password" type="password"></ion-input>
+      <ion-input placeholder="Confrom Password" formControlName="confirmPassword" type="password"></ion-input> 
+      <ion-button expand="block" (click)="register()">Register</ion-button>
+    </form>
+  </div>
+</ion-content>

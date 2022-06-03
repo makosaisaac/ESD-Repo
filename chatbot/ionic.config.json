@@ -1,0 +1,8 @@
+{
+  "name": "chatbot",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "329b7b9b"
+}
